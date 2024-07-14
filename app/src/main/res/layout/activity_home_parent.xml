@@ -8,9 +8,9 @@
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.5"
         android:scaleType="centerCrop"
-        android:src="@drawable/family"
-        android:alpha="0.5" />
+        android:src="@drawable/family" />
 
     <!-- Foreground Content -->
     <LinearLayout
@@ -22,8 +22,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:padding="10dp">
 
             <!-- Uncomment the button if needed
             <Button
@@ -52,11 +52,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:paddingTop="8dp"
             android:text="@string/sort_by"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingTop="8dp" />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,6 +108,6 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

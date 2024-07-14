@@ -298,6 +298,7 @@ public class Kid extends BasicUser {
         super.uid = kId;
         return this;
     }
+
     public Kid fromBoundary(ObjectBoundary objectBoundary) {
         Kid loadedKid = new Gson().fromJson(new Gson().toJson(objectBoundary.getObjectDetails()), Kid.class);
         loadedKid.setEvents(convertToKidEventList(objectBoundary));
@@ -307,6 +308,7 @@ public class Kid extends BasicUser {
         loadedKid.setAge(LocalDate.now().getYear() - loadedKid.getBirthDate().getYear());
         return loadedKid;
     }
+
     public ArrayList<KidEvent> convertToKidEventList(ObjectBoundary objectBoundary) {
         // Get the object details map
         Map<String, Object> objectDetails = objectBoundary.getObjectDetails();
@@ -319,13 +321,15 @@ public class Kid extends BasicUser {
         String eventsJson = gson.toJson(eventsObject);
 
         // Define the type for ArrayList<KidEvent>
-        Type kidEventType = new TypeToken<ArrayList<KidEvent>>(){}.getType();
+        Type kidEventType = new TypeToken<ArrayList<KidEvent>>() {
+        }.getType();
 
         // Convert the JSON string to ArrayList<KidEvent>
         ArrayList<KidEvent> kidEvents = gson.fromJson(eventsJson, kidEventType);
 
         return kidEvents;
     }
+
     public ArrayList<ImmunizationRecord> convertToImmunizationRecordList(ObjectBoundary objectBoundary) {
         // Get the object details map
         Map<String, Object> objectDetails = objectBoundary.getObjectDetails();
@@ -338,13 +342,15 @@ public class Kid extends BasicUser {
         String eventsJson = gson.toJson(eventsObject);
 
         // Define the type for ArrayList<KidEvent>
-        Type immunization_records_type = new TypeToken<ArrayList<ImmunizationRecord>>(){}.getType();
+        Type immunization_records_type = new TypeToken<ArrayList<ImmunizationRecord>>() {
+        }.getType();
 
         // Convert the JSON string to ArrayList<KidEvent>
         ArrayList<ImmunizationRecord> immunization_records = gson.fromJson(eventsJson, immunization_records_type);
 
         return immunization_records;
     }
+
     public ArrayList<MyPhoto> convertToMyPhotoList(ObjectBoundary objectBoundary) {
         // Get the object details map
         Map<String, Object> objectDetails = objectBoundary.getObjectDetails();
@@ -357,7 +363,8 @@ public class Kid extends BasicUser {
         String eventsJson = gson.toJson(eventsObject);
 
         // Define the type for ArrayList<KidEvent>
-        Type photoType = new TypeToken<ArrayList<MyPhoto>>(){}.getType();
+        Type photoType = new TypeToken<ArrayList<MyPhoto>>() {
+        }.getType();
 
         // Convert the JSON string to ArrayList<KidEvent>
         ArrayList<MyPhoto> photoList = gson.fromJson(eventsJson, photoType);
@@ -367,7 +374,7 @@ public class Kid extends BasicUser {
 
     @Override
     public String getMail() {
-        return getPhone()+"@gmail.com";
+        return getPhone() + "@gmail.com";
     }
 
     @Override

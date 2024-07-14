@@ -150,16 +150,13 @@ public class AddKidActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess() {
                                         startActivity(new Intent(AddKidActivity.this, MenuActivity.class));
-
                                     }
 
                                     @Override
                                     public void onFailure(Exception exception) {
                                         Toast.makeText(AddKidActivity.this, "failed Role " + exception.getMessage(), Toast.LENGTH_SHORT).show();
-
                                     }
                                 });
-
                             }
 
                             @Override
@@ -167,17 +164,13 @@ public class AddKidActivity extends AppCompatActivity {
                                 Toast.makeText(AddKidActivity.this, "failed update parent " + exception.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }, manager.getParent());
-
                     }
 
                     @Override
                     public void onFailure(Exception exception) {
                         Toast.makeText(AddKidActivity.this, "failed Role " + exception.getMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                 });
-
-
                 Toast.makeText(AddKidActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
             }
 

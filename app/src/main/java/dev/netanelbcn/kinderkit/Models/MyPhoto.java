@@ -5,6 +5,7 @@ import java.util.UUID;
 public class MyPhoto {
     private String pId;
     private String photoUri;
+
     public MyPhoto() {
         pId = UUID.randomUUID().toString().toLowerCase();
     }

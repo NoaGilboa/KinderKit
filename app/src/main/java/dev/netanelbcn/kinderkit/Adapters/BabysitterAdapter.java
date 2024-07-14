@@ -23,18 +23,12 @@ import dev.netanelbcn.kinderkit.Models.Babysitter;
 import dev.netanelbcn.kinderkit.R;
 
 public class BabysitterAdapter extends RecyclerView.Adapter<BabysitterAdapter.BabysitterViewHolder> {
+    private final BabysitterClickListener babysitterClicked;
     private List<Babysitter> babysitters;
     private Context context;
     private DataManager dataManager;
 
-    public interface BabysitterClickListener {
-        void onBabysitterClicked(Babysitter babysitter);
-    }
-
-    private final BabysitterClickListener babysitterClicked;
-
-
-    public BabysitterAdapter(List<Babysitter> babysitters, Context context, DataManager dataManager, BabysitterClickListener babysitterClicked ) {
+    public BabysitterAdapter(List<Babysitter> babysitters, Context context, DataManager dataManager, BabysitterClickListener babysitterClicked) {
         this.babysitters = babysitters;
         this.context = context;
         this.dataManager = dataManager;
@@ -123,6 +117,10 @@ public class BabysitterAdapter extends RecyclerView.Adapter<BabysitterAdapter.Ba
     @Override
     public int getItemCount() {
         return babysitters.size();
+    }
+
+    public interface BabysitterClickListener {
+        void onBabysitterClicked(Babysitter babysitter);
     }
 
     static class BabysitterViewHolder extends RecyclerView.ViewHolder {

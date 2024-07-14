@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import dev.netanelbcn.kinderkit.Adapters.MenuCardsAdapter;
@@ -48,7 +47,6 @@ public class HomeFragment extends Fragment {
         adapter = new MenuCardsAdapter(getContext());
         connectUI(root);
         //Glide.with(this).load(R.drawable.homepagebackgrond).placeholder(R.drawable.ic_launcher_background).into(FH_SIV_logo);
-
 
 
         adapter.setPlayerCallback(new KidCallback() {

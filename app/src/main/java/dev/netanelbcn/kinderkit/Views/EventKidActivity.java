@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -44,8 +43,8 @@ public class EventKidActivity extends AppCompatActivity {
         events = myKid.getEvents();
         Log.d("NewEvents", events.toString());
         EA_RV_events.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new EvenetAdapter(this, events,currentKidPosition);
-        Log.d("NewEvents1",events.toString());
+        adapter = new EvenetAdapter(this, events, currentKidPosition);
+        Log.d("NewEvents1", events.toString());
         refreshEventsList();
         adapter.setEventCallback((event, position) ->
         {

@@ -14,9 +14,9 @@
             android:id="@+id/backgroundImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:alpha="0.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/addkidbackground"
-            android:alpha="0.5" />
+            android:src="@drawable/addkidbackground" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/AK_SIV_imageViewProfile"

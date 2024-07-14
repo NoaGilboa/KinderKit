@@ -40,6 +40,7 @@ public class IRAdapter extends RecyclerView.Adapter<IRAdapter.RecordViewHolder> 
             public void onKidsLoaded(ArrayList<Kid> kids) {
                 IRAdapter.this.records = kids.get(currentKidPosition).getImmunizationRecords();
             }
+
             @Override
             public void onFailure(Exception exception) {
                 Log.e("errr", exception.getMessage());

@@ -9,18 +9,18 @@
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.2"
         android:scaleType="center"
-        android:src="@drawable/logging_background"
-        android:alpha="0.2" />
+        android:src="@drawable/logging_background" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
+        android:paddingTop="60dp"
         android:text="@string/kinderkit"
         android:textColor="@color/black"
-        android:paddingTop="60dp"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -42,7 +42,6 @@
             android:paddingTop="20dp"
             android:paddingRight="30dp"
             android:paddingBottom="20dp">
-
 
 
             <EditText

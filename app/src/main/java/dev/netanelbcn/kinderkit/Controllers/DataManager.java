@@ -1,7 +1,6 @@
 package dev.netanelbcn.kinderkit.Controllers;
 
 import android.net.Uri;
-import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -159,7 +158,7 @@ public class DataManager {
         parent.getKids().get(kidPos).getEvents().add(event);
         Kid kid = getParent().getKids().get(kidPos);
         db.refreshUserInDB(kid);
-       // db.refreshUserInDB(parent);
+        // db.refreshUserInDB(parent);
         //fbmanager.addKidEventToDB(event, parent.getKids().get(kidPos));
     }
 

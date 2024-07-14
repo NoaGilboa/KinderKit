@@ -47,6 +47,7 @@ public class EvenetAdapter extends RecyclerView.Adapter<EvenetAdapter.EventViewH
                 EvenetAdapter.this.events = kids.get(currentKidPosition).getEvents();
 
             }
+
             @Override
             public void onFailure(Exception exception) {
                 Log.e("errr", exception.getMessage());

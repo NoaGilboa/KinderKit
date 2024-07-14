@@ -10,9 +10,9 @@
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:alpha="0.5"
         android:scaleType="centerCrop"
-        android:src="@drawable/immunization_background"
-        android:alpha="0.5" />
+        android:src="@drawable/immunization_background" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/GA_SIV_immunization"

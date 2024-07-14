@@ -33,7 +33,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PictureV
     private DataManager dataManager = DataManager.getInstance();
     private int currentKidPosition;
 
-    public GalleryAdapter(Context context, ArrayList<MyPhoto> pictures , int currentKidPosition) {
+    public GalleryAdapter(Context context, ArrayList<MyPhoto> pictures, int currentKidPosition) {
         this.context = context;
         this.pictures = pictures;
         this.currentKidPosition = currentKidPosition;
@@ -47,6 +47,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PictureV
             public void onKidsLoaded(ArrayList<Kid> kids) {
                 GalleryAdapter.this.pictures = kids.get(currentKidPosition).getPhotosUri();
             }
+
             @Override
             public void onFailure(Exception exception) {
                 Log.e("errr", exception.getMessage());
