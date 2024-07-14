@@ -113,14 +113,8 @@ public class MenuActivity extends AppCompatActivity {
             Log.d("LogInError", "No email or phone number");
             return;
         }
-        Glide.with(this).
-
-                load(uri)
-                        .
-
-                placeholder(R.drawable.ic_launcher_background)
-                        .
-
+        Glide.with(this).load(uri)
+                .placeholder(R.drawable.ic_launcher_background).
                 into(NHM_IV_profilePic);
     }
 
