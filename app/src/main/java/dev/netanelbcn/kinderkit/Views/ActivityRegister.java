@@ -151,6 +151,7 @@ public class ActivityRegister extends AppCompatActivity {
                         public void onUserCreated(String email) {
                             Toast.makeText(ActivityRegister.this, "Registration successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(ActivityRegister.this, LoginActivity.class));
+                            finish();
                         }
 
                         @Override

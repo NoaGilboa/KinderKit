@@ -1,6 +1,7 @@
 package dev.netanelbcn.kinderkit.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,18 +14,37 @@ import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
+import dev.netanelbcn.kinderkit.Controllers.DataManager;
 import dev.netanelbcn.kinderkit.Interfaces.DelRecordCallback;
 import dev.netanelbcn.kinderkit.Models.ImmunizationRecord;
+import dev.netanelbcn.kinderkit.Models.Kid;
 import dev.netanelbcn.kinderkit.R;
 
 public class IRAdapter extends RecyclerView.Adapter<IRAdapter.RecordViewHolder> {
     private Context context;
     private DelRecordCallback delRecordCallback;
     private ArrayList<ImmunizationRecord> records;
+    private DataManager dataManager = DataManager.getInstance();
+    private int currentKidPosition;
 
-    public IRAdapter(Context context, ArrayList<ImmunizationRecord> records) {
+    public IRAdapter(Context context, ArrayList<ImmunizationRecord> records, int currentKidPosition) {
         this.context = context;
         this.records = records;
+        this.currentKidPosition = currentKidPosition;
+        setRecords(currentKidPosition);
+    }
+
+    public void setRecords(int currentKidPosition) {
+        dataManager.loadAllKids(new DataManager.OnKidsLoadedListener() {
+            @Override
+            public void onKidsLoaded(ArrayList<Kid> kids) {
+                IRAdapter.this.records = kids.get(currentKidPosition).getImmunizationRecords();
+            }
+            @Override
+            public void onFailure(Exception exception) {
+                Log.e("errr", exception.getMessage());
+            }
+        });
     }
 
     public IRAdapter setIRCallback(DelRecordCallback delRecordCallback) {

@@ -15,12 +15,13 @@ import dev.netanelbcn.kinderkit.Adapters.BabysitterAdapter;
 import dev.netanelbcn.kinderkit.Controllers.DataManager;
 import dev.netanelbcn.kinderkit.Models.Babysitter;
 import dev.netanelbcn.kinderkit.R;
+import dev.netanelbcn.kinderkit.Uilities.MapsFragment;
 
-public class ActivityHomeParent extends AppCompatActivity {
+public class ActivityHomeParent extends AppCompatActivity implements BabysitterAdapter.BabysitterClickListener {
     private RecyclerView recyclerView;
     private BabysitterAdapter adapter;
     private List<Babysitter> babysitters;
-
+    private MapsFragment mapsFragment;
     private DataManager dataManager = DataManager.getInstance();
 
     @Override
@@ -28,15 +29,17 @@ public class ActivityHomeParent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_parent);
 
-
+        /// Ensure MapsFragment is not null
+        mapsFragment = new MapsFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.mapContainer, mapsFragment).commit();
         recyclerView = findViewById(R.id.rvBabysitters);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         babysitters = new ArrayList<>();
-        adapter = new BabysitterAdapter(babysitters, this, dataManager);
+        adapter = new BabysitterAdapter(babysitters, this, dataManager, this);
         recyclerView.setAdapter(adapter);
 
         loadBabysitters();
-
 
 //        findViewById(R.id.btnSettings).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -66,7 +69,6 @@ public class ActivityHomeParent extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Exception exception) {
-
                     Toast.makeText(ActivityHomeParent.this, "Failed to load babysitters: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -87,6 +89,15 @@ public class ActivityHomeParent extends AppCompatActivity {
                 Toast.makeText(ActivityHomeParent.this, "Failed to load babysitters: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBabysitterClicked(Babysitter babysitter) {
+        if (mapsFragment != null) {
+            mapsFragment.zoom(babysitter.getLatitude(), babysitter.getLongitude());
+        } else {
+            Toast.makeText(this, "Map is not ready", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 

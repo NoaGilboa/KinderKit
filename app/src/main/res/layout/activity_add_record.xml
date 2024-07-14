@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".Views.AddActivities.AddRecordActivity">
 
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/immunization_background"
+        android:alpha="0.5" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/AR_SIV_back"
         android:layout_width="match_parent"

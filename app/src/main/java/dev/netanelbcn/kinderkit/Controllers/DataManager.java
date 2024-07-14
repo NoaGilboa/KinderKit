@@ -159,6 +159,7 @@ public class DataManager {
         parent.getKids().get(kidPos).getEvents().add(event);
         Kid kid = getParent().getKids().get(kidPos);
         db.refreshUserInDB(kid);
+       // db.refreshUserInDB(parent);
         //fbmanager.addKidEventToDB(event, parent.getKids().get(kidPos));
     }
 
@@ -168,7 +169,6 @@ public class DataManager {
         db.refreshUserInDB(kid);
         parent.removeKid(kid);
         db.refreshUserInDB(parent);
-
     }
 
     public void removeImmunizationRecord(ImmunizationRecord iR, int pos) {

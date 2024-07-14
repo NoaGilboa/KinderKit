@@ -4,6 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Views.AddActivities.AddEventActivity">
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/addeventbackground"
+        android:alpha="0.5" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/GA_SIV_back"

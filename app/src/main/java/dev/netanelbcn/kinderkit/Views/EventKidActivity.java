@@ -37,7 +37,7 @@ public class EventKidActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_event_kid);
         connectUI();
-        Glide.with(this).load(R.drawable.eventbackground).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_event);
+        //Glide.with(this).load(R.drawable.eventbackground).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_event);
         getIntents();
         attachListeners();
         Kid myKid = dataManager.getKids().get(currentKidPosition);
@@ -45,6 +45,7 @@ public class EventKidActivity extends AppCompatActivity {
         Log.d("NewEvents", events.toString());
         EA_RV_events.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         adapter = new EvenetAdapter(this, events,currentKidPosition);
+        Log.d("NewEvents1",events.toString());
         refreshEventsList();
         adapter.setEventCallback((event, position) ->
         {

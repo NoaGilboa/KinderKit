@@ -2,6 +2,7 @@ package dev.netanelbcn.kinderkit.Adapters;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,10 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;
 
+import dev.netanelbcn.kinderkit.Controllers.DataManager;
 import dev.netanelbcn.kinderkit.Interfaces.DelPicCallback;
 import dev.netanelbcn.kinderkit.Interfaces.SetAsProfilePictureCallback;
+import dev.netanelbcn.kinderkit.Models.Kid;
 import dev.netanelbcn.kinderkit.Models.MyPhoto;
 import dev.netanelbcn.kinderkit.R;
 
@@ -27,10 +30,28 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PictureV
     private DelPicCallback delPicCallback;
     private SetAsProfilePictureCallback setAsProfilePictureCallback;
     private ArrayList<MyPhoto> pictures;
+    private DataManager dataManager = DataManager.getInstance();
+    private int currentKidPosition;
 
-    public GalleryAdapter(Context context, ArrayList<MyPhoto> pictures) {
+    public GalleryAdapter(Context context, ArrayList<MyPhoto> pictures , int currentKidPosition) {
         this.context = context;
         this.pictures = pictures;
+        this.currentKidPosition = currentKidPosition;
+        setPictures(currentKidPosition);
+
+    }
+
+    public void setPictures(int currentKidPosition) {
+        dataManager.loadAllKids(new DataManager.OnKidsLoadedListener() {
+            @Override
+            public void onKidsLoaded(ArrayList<Kid> kids) {
+                GalleryAdapter.this.pictures = kids.get(currentKidPosition).getPhotosUri();
+            }
+            @Override
+            public void onFailure(Exception exception) {
+                Log.e("errr", exception.getMessage());
+            }
+        });
     }
 
     public GalleryAdapter setDelPicCallback(DelPicCallback delPicCallback) {
@@ -55,15 +76,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.PictureV
     public void onBindViewHolder(@NonNull GalleryAdapter.PictureViewHolder holder, int position) {
         MyPhoto picture = getItem(position);
         holder.PG_SIV_Photo.setImageURI(Uri.parse(picture.getPhotoUri()));
-        Glide.with(this.context).load(picture.getPhotoUri()).placeholder(R.drawable.ic_launcher_background)
-                .into(holder.PG_SIV_Photo);
+        Glide.with(this.context).load(picture.getPhotoUri()).placeholder(R.drawable.ic_launcher_background).into(holder.PG_SIV_Photo);
         holder.PG_MB_SetAsProfilePicture.setOnClickListener(v -> {
             if (setAsProfilePictureCallback != null)
                 setAsProfilePictureCallback.onSetAsProfilePicture(Uri.parse(picture.getPhotoUri()));
         });
         holder.PG_MB_Delete.setOnClickListener(v -> {
-            if (delPicCallback != null)
-                delPicCallback.onDelPic(picture);
+            if (delPicCallback != null) delPicCallback.onDelPic(picture);
         });
     }
 

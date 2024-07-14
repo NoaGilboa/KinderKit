@@ -15,6 +15,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"${properties["GoogleMapsApiKey"]}\"")
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] =
+            properties["GoogleMapsApiKey"]?.toString() ?: ""
     }
 
     buildTypes {
@@ -30,7 +33,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -73,4 +78,5 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
     //gson
     implementation("com.google.code.gson:gson:2.11.0")
+
 }

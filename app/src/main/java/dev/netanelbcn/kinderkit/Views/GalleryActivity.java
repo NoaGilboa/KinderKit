@@ -3,6 +3,7 @@ package dev.netanelbcn.kinderkit.Views;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
@@ -64,7 +65,7 @@ public class GalleryActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_gallery);
         connectUI();
-        Glide.with(this).load(R.drawable.gallerybackground).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_gallery);
+        //Glide.with(this).load(R.drawable.gallerybackground).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_gallery);
         getIntents();
         FirebaseApp.initializeApp(GalleryActivity.this);
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -77,7 +78,7 @@ public class GalleryActivity extends AppCompatActivity {
 //        GA_RV_gallery.setLayoutManager(new
 //                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        adapter = new GalleryAdapter(this, images);
+        adapter = new GalleryAdapter(this, images, currentKidPosition);
         adapter.setDelPicCallback((uri) -> {
             DataManager.getInstance().removePhotoUri(uri, myKid);
             adapter.notifyDataSetChanged();
@@ -122,12 +123,14 @@ public class GalleryActivity extends AppCompatActivity {
                 DataManager.getInstance().addPhotoUri(fbImage, myKid);
                 //    Kid kid = DataManager.getInstance().getKids().get(currentKidPosition);
                 //     DataManager.getInstance().db.refreshKidDB(kid);
+
                 adapter.notifyDataSetChanged();
                 Toast.makeText(GalleryActivity.this, "Image uploaded successfully", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(e -> {
                 Toast.makeText(GalleryActivity.this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
             });
         }).addOnFailureListener(e -> {
+            Log.e("errr", e.getMessage());
             Toast.makeText(GalleryActivity.this, "Image upload failed", Toast.LENGTH_SHORT).show();
         }).addOnProgressListener(snapshot -> {
             Toast.makeText(GalleryActivity.this, "Upload In Progress", Toast.LENGTH_SHORT).show();

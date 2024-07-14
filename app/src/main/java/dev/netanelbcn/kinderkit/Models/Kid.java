@@ -304,6 +304,7 @@ public class Kid extends BasicUser {
         loadedKid.setImmunizationRecords(convertToImmunizationRecordList(objectBoundary));
         loadedKid.setPhotosUri(convertToMyPhotoList(objectBoundary));
         loadedKid.setProfilePhotoUri(objectBoundary.getObjectDetails().get("profilePhoto").toString());
+        loadedKid.setAge(LocalDate.now().getYear() - loadedKid.getBirthDate().getYear());
         return loadedKid;
     }
     public ArrayList<KidEvent> convertToKidEventList(ObjectBoundary objectBoundary) {
@@ -366,7 +367,7 @@ public class Kid extends BasicUser {
 
     @Override
     public String getMail() {
-        return super.mail;
+        return getPhone()+"@gmail.com";
     }
 
     @Override

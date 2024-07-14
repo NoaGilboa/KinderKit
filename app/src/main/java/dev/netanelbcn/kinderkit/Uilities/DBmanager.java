@@ -220,7 +220,7 @@ public class DBmanager {
                             @Override
                             public void onFailure(Exception exception) {
                                 //    Toast.makeText(AddEventActivity.this, "failed Role1 " + exception.getMessage(), Toast.LENGTH_SHORT).show();
-
+                                Log.e("problt", exception.getMessage());
                             }
                         });
 

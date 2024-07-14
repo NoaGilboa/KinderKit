@@ -62,6 +62,10 @@
         <activity
             android:name=".Views.ActivityRegister"
             android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDzAcP3qzgSMuDqeFZDTyH_yRoH8yBeRNA" />
     </application>
 
 </manifest>

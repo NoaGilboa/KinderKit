@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".Views.ui.home.HomeFragment">
 
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/homepagebackgrond"
+        android:alpha="0.5" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/FH_SIV_logo"
         android:layout_width="match_parent"

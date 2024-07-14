@@ -47,7 +47,8 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         adapter = new MenuCardsAdapter(getContext());
         connectUI(root);
-        Glide.with(this).load(R.drawable.homepagebackgrond).placeholder(R.drawable.ic_launcher_background).into(FH_SIV_logo);
+        //Glide.with(this).load(R.drawable.homepagebackgrond).placeholder(R.drawable.ic_launcher_background).into(FH_SIV_logo);
+
 
 
         adapter.setPlayerCallback(new KidCallback() {

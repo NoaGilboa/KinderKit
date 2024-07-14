@@ -27,10 +27,18 @@ public class BabysitterAdapter extends RecyclerView.Adapter<BabysitterAdapter.Ba
     private Context context;
     private DataManager dataManager;
 
-    public BabysitterAdapter(List<Babysitter> babysitters, Context context, DataManager dataManager) {
+    public interface BabysitterClickListener {
+        void onBabysitterClicked(Babysitter babysitter);
+    }
+
+    private final BabysitterClickListener babysitterClicked;
+
+
+    public BabysitterAdapter(List<Babysitter> babysitters, Context context, DataManager dataManager, BabysitterClickListener babysitterClicked ) {
         this.babysitters = babysitters;
         this.context = context;
         this.dataManager = dataManager;
+        this.babysitterClicked = babysitterClicked;
     }
 
     @NonNull
@@ -105,6 +113,10 @@ public class BabysitterAdapter extends RecyclerView.Adapter<BabysitterAdapter.Ba
                     }
                 });
             });
+        });
+
+        holder.itemView.setOnClickListener(v -> {
+            babysitterClicked.onBabysitterClicked(babysitter);
         });
     }
 

@@ -35,7 +35,7 @@ public class KidInfoActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_kid_info);
         connectUI();
-        Glide.with(this).load(R.drawable.kidinfoback).placeholder(R.drawable.ic_launcher_background).into(FH_SIV_background);
+        //Glide.with(this).load(R.drawable.kidinfoback).placeholder(R.drawable.ic_launcher_background).into(FH_SIV_background);
 
         getIntents();
         attachListeners();
@@ -46,6 +46,7 @@ public class KidInfoActivity extends AppCompatActivity {
         FH_BTN_delete.setOnClickListener(v -> {
             Kid kid = DataManager.getInstance().getKids().get(currentKidId);
             DataManager.getInstance().removeKid(kid);
+
             finish();
         });
         FH_BTN_immunization.setOnClickListener(v -> {

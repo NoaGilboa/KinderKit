@@ -38,14 +38,14 @@ public class ImmunizationsActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_immunizations);
         connectUI();
-        Glide.with(this).load(R.drawable.immunization_background).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_immunization);
+        //Glide.with(this).load(R.drawable.immunization_background).placeholder(R.drawable.ic_launcher_background).into(GA_SIV_immunization);
         getIntents();
         attachListeners();
         Kid myKid = DataManager.getInstance().getKids().get(currentKidPosition);
         records = myKid.getImmunizationRecords();
         IA_RV_immunizationRecord.setLayoutManager(new
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new IRAdapter(this, records);
+        adapter = new IRAdapter(this, records, currentKidPosition);
         adapter.setIRCallback((record, position) -> {
             DataManager.getInstance().removeImmunizationRecord(record, currentKidPosition);
             adapter.notifyDataSetChanged();
