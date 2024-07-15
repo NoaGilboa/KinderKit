@@ -181,6 +181,22 @@ public class DataManager {
     public void removeKidEvent(KidEvent kEvent, int pos) {
         parent.getKids().get(pos).getEvents().remove(kEvent);
         Kid kid = parent.getKids().get(pos);
+        if(kEvent.getEventTitle().contains("Babysitter Event")){
+            BabysittingEvent babysittingEvent = new BabysittingEvent();
+            babysittingEvent.setMessageId(kEvent.geteId());
+            babysittingEvent.setMessageText(kEvent.getEventTitle());
+            babysittingEvent.setBabysitterUid("-1");
+            updateEvent(kEvent.geteId(), babysittingEvent, new OnUserUpdateListener() {
+                @Override
+                public void onSuccess() {
+                    Log.d("eran", "KidEvent updated successfully");
+                }
+                @Override
+                public void onFailure(Exception exception) {
+                    Log.e("eran", "Failed to update KidEvent: " + exception.getMessage());
+                }
+            });
+        }
         db.refreshUserInDB(kid);
         db.refreshUserInDB(parent);
 
@@ -297,6 +313,18 @@ public class DataManager {
         }
 
         return babysitters;
+    }
+
+    private List<BabysittingEvent> convertObjectBoundaryToBabysittingEvents
+            (List<ObjectBoundary> objects) {
+        List<BabysittingEvent> events = new ArrayList<>();
+
+        for (ObjectBoundary object : objects) {
+            BabysittingEvent event = new Gson().fromJson(new Gson().toJson(object.getObjectDetails()), BabysittingEvent.class);
+            events.add(event);
+        }
+
+        return events;
     }
 
     private void fetchBabysittersByDistance(UserBoundary user, double latitude,
@@ -497,7 +525,6 @@ public class DataManager {
         babysittingEvent.setBabysitterUid(babysitterId);
         babysittingEvent.setSelectedDate(date);
         babysittingEvent.setMailParent(getParent().getMail());
-        babysittingEvent.setStatus(false);
         babysittingEvent.setParentUid(parentId);
 
         return babysittingEvent;
@@ -525,6 +552,7 @@ public class DataManager {
                                         Log.d("DataManager", "Event saved successfully: " + response.body());
                                         listenerSave.onSuccess(objectBoundary);
                                         BabysittingEvent savedEvent = babysittingEvent;
+                                        savedEvent.setMessageId(response.body().getObjectId().getId());
                                         updateEvent(response.body().getObjectId().getId(), savedEvent, new OnUserUpdateListener() {
                                             @Override
                                             public void onSuccess() {
@@ -674,7 +702,7 @@ public class DataManager {
         });
     }
 
-    private void updateObject(ObjectBoundary objectBoundary, OnUserUpdateListener
+    public void updateObject(ObjectBoundary objectBoundary, OnUserUpdateListener
             listenerUpdate) {
         userService.updateObject(objectBoundary.getObjectId().getId(), objectBoundary.getObjectId().getSuperapp(), objectBoundary.getObjectId().getSuperapp(), objectBoundary.getCreatedBy().getUserId().getEmail(), objectBoundary)
                 .enqueue(new Callback<Void>() {
@@ -695,7 +723,7 @@ public class DataManager {
                 });
     }
 
-    public void loadAllEvents(int page, int size, OnEventsLoadedListener listener) {
+    public void loadAllBabysittingEvents(int page, int size, OnEventsLoadedListener listener) {
         updateUserRole(getParent().getMail(), Role.MINIAPP_USER, new OnUserUpdateListener() {
             @Override
             public void onSuccess() {
@@ -705,19 +733,12 @@ public class DataManager {
                             public void onResponse
                                     (Call<UserBoundary> call, Response<UserBoundary> response) {
                                 if (response.isSuccessful() && response.body() != null) {
-                                    MiniAppCommandBoundary command = createCommand(
-                                            "GetAllObjectsByTypeAndAliasAndActive", response.body(),
-                                            "type", BabysittingEvent.class.getSimpleName(),
-                                            "alias", response.body().getUsername(),
-                                            "page", String.valueOf(page),
-                                            "size", String.valueOf(size));
-
-                                    eventService.loadAllBabysittingEvents(BabysittingEvent.class.getSimpleName(), command)
-                                            .enqueue(new Callback<List<Object>>() {
+                                    eventService.loadAllBabysittingEvents(BabysittingEvent.class.getSimpleName(), superapp, getParent().getMail())
+                                            .enqueue(new Callback<List<ObjectBoundary>>() {
                                                 @Override
-                                                public void onResponse(Call<List<Object>> call, Response<List<Object>> response) {
+                                                public void onResponse(Call<List<ObjectBoundary>> call, Response<List<ObjectBoundary>> response) {
                                                     if (response.isSuccessful() && response.body() != null) {
-                                                        List<BabysittingEvent> events = convertObjectsToEvents(response.body());
+                                                        List<BabysittingEvent> events = convertObjectBoundaryToBabysittingEvents(response.body());
                                                         listener.onEventsLoaded(events);
                                                     } else {
                                                         listener.onFailure(new Exception("Failed to load messages"));
@@ -725,13 +746,13 @@ public class DataManager {
                                                 }
 
                                                 @Override
-                                                public void onFailure(Call<List<Object>> call, Throwable t) {
+                                                public void onFailure(Call<List<ObjectBoundary>> call, Throwable t) {
                                                     listener.onFailure(new Exception("Failed to load messages: " + t.getMessage()));
                                                 }
                                             });
 
                                 } else {
-                                    db.logError(response, "createEvent");
+                                    Log.e("DataManager", "Failed to fetch parent ID");
                                     listener.onFailure(new Exception("Failed to save event data"));
                                 }
                             }
@@ -750,6 +771,7 @@ public class DataManager {
         });
     }
 
+
     private List<BabysittingEvent> convertObjectsToEvents(List<Object> objects) {
         List<BabysittingEvent> events = new ArrayList<>();
         String json = new Gson().toJson(objects);
@@ -765,6 +787,7 @@ public class DataManager {
 
         return events;
     }
+
 
     public interface OnLogoutListener {
         void onLogoutSuccess();

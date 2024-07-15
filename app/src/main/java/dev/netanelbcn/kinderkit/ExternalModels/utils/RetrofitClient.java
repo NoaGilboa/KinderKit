@@ -9,8 +9,10 @@ public class RetrofitClient {
 
     //private static final String BASE_URL = "http://10.0.2.2:8084"; //emulator
     //private static final String BASE_URL = "http://192.168.1.140:8084";  //device at home
-    private static final String BASE_URL = "http://172.20.10.3:8084";  //device at Afeka
+    // private static final String BASE_URL = "http://172.20.10.3:8084";  //device at Afeka
     //private static final String BASE_URL = "http://192.168.1.84:8084";  //device at home
+    private static final String BASE_URL = "http://172.20.10.3:8084";  //device at Afeka
+
 
     private static RetrofitClient instance;
     private Retrofit retrofit;

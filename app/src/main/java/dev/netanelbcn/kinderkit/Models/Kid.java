@@ -51,7 +51,7 @@ public class Kid extends BasicUser {
         this.ImmunizationRecords = new ArrayList<>();
         this.events = new ArrayList<>();
         super.uid = UUID.randomUUID().toString().toUpperCase();
-        this.phone = "-1";
+        this.phone = uid;
         String temp = super.uid.replace("-", "");
         temp = temp.toLowerCase();
         super.mail = temp + "@gmail.com";

@@ -89,6 +89,7 @@ public class AddKidActivity extends AppCompatActivity {
                 Kid kid;
                 if (phoneNum.isEmpty())
                     kid = new Kid().setBirthDate(day, month + 1, year).setfName(firstName).setlName(lastName);
+
                 else
                     kid = new Kid(phoneNum).setBirthDate(day, month + 1, year).setfName(firstName).setlName(lastName);
                 if (fbImage != null) {

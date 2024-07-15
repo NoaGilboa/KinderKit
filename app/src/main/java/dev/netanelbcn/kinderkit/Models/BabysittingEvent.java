@@ -59,7 +59,7 @@ public class BabysittingEvent {
         int year = Integer.parseInt(dateParts[2]);
         MyDate myDate = new MyDate(day, month, year);
         return new KidEvent().setEventTitle("Babysitter Event:\n" + this.getMessageText())
-                .setEDate(myDate);
+                .setEDate(myDate).seteId(this.getMessageId()).setApproved(this.status);
     }
 
     public String getBabysitterUid() {
