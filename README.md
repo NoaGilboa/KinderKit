@@ -44,7 +44,6 @@ Kinderkit is a versatile child management application designed to simplify the o
   
 
 
-
 ## "Sign in" screen:
 
 <img src="https://github.com/user-attachments/assets/1b4c59a5-e225-48b0-9bff-6216befbe0c8" width="300" />
@@ -82,13 +81,15 @@ Kinderkit is a versatile child management application designed to simplify the o
 <img src="https://github.com/user-attachments/assets/35f105b8-61b1-4800-8691-ca367b1f081f" width="300" />
 
 
-1. Clone the repository:
+
+Clone the repository:
 `https://github.com/NoaGilboa/KinderKit-MiniApp.git`
 
 
 ## Watch Me!
 
-[KidApp-MiniApp.zip](https://github.com/user-attachments/files/16522595/KidApp-MiniApp.zip)
+
+https://github.com/user-attachments/assets/549ec888-fac1-4214-9c9c-471fb7707898
 
 https://github.com/NetanelBCN/KinderKit/assets/134021385/4caf87a3-ccb4-45fd-b344-7bca5fd7609f
 
