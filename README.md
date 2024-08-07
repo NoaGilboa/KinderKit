@@ -2,9 +2,17 @@
 ![kinderkitlogo](https://github.com/NetanelBCN/KinderKit/assets/134021385/22528331-0e23-453c-8808-99481bc3544f)
 
 
+![kinderkitlogo](https://github.com/NetanelBCN/KinderKit/assets/134021385/22528331-0e23-453c-8808-99481bc3544f)
+
+
 # KinderKit 
 
+## Introduction
+
 Kinderkit is a versatile child management application designed to simplify the organization of children's information and activities. With Kinderkit, users can create accounts using their phone numbers or Gmail accounts, allowing for convenient access to a range of features.
+
+#### The application is being integrated to the server FamilyCare360 : (https://github.com/YardenCherry/FamilyCare360.git)
+
 
 
 ## Features
@@ -25,42 +33,65 @@ Kinderkit is a versatile child management application designed to simplify the o
   Store precious memories by adding photos to each child's profile.
 
 - #### Firebase Integration:
-  All data, including immunization records, event lists, and photos, are securely stored in Firebase Realtime Database and Firebase Storage, ensuring reliability and accessibility.
+  All pictures are stored in Firebase Storage, ensuring reliability and accessibility.
+
+- #### Send Babysitting Requests
+  Parents can send babysitting requests to registered babysitters.
+  
+- #### Sorting BabySitters and displaying Google Maps fragment (Google Maps API)
+  Parent can sort babysitters by hourly wage / experience / location.
+  Parent can see the location of the babysitter by clicking their card.
+  
 
 
 
-## "Sign in / up" screens:
+## "Sign in" screen:
 
-![photo_2024-04-14_22-16-13](https://github.com/NetanelBCN/KinderKit/assets/134021385/7be54042-03d7-472a-9dd0-ac0fcc417c5d)
-![photo_2024-04-14_22-16-18](https://github.com/NetanelBCN/KinderKit/assets/134021385/562b5d2b-6c2e-4b7c-a871-c4c308008676)
+![Screenshot_20240714_162258](https://github.com/user-attachments/assets/1b4c59a5-e225-48b0-9bff-6216befbe0c8)
+
+
 
 ## User details bar:
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/e30e8d7e-bef2-4c47-8cd0-346a0a9ca53e)
+![menu screen](https://github.com/user-attachments/assets/68c2f619-fd05-4ad3-abad-4d866f317f41)
+
 
 ## User "Kids Menu" screen & "Add New Kid" screen:
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/90f22f29-d074-46db-a726-d8de6cc378d6)
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/b61d3552-036e-4c41-b181-ec792e40043c)
+![Home page screen](https://github.com/user-attachments/assets/89d8a502-4824-41dc-90cf-8824373f3c9b)
+
+![add new kid screen](https://github.com/user-attachments/assets/1fc6eff4-7f3b-4a43-be1b-910c2e5a11ed)
+![new kid add successfully](https://github.com/user-attachments/assets/c62c73b9-66d3-437a-a8e5-452995a5a9aa)
+
 
 ## "Kid's Card" screen:
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/b0b59fc8-d058-4c41-af52-03c3ea60efc8)
+![kid profile](https://github.com/user-attachments/assets/cd3bd359-0360-4c24-a18b-07bbe69aea31)
+
 
 ## "Kid's Gallery" screen:
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/437bd244-69d5-4a38-893a-e0c34cf64ae1)
+![kid gallery screen](https://github.com/user-attachments/assets/fc3651b4-28a3-4f9b-b4c8-3829cfc56eba)
+
 
 ## "Kid's Immunization Records" screen & "Add New Immunization Record" screen:
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/3872f228-d462-4c13-ba97-ea9c7cb7e8e7)
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/b419adb8-0a4c-4fae-9167-3aaf5a3b0329)
+![immunizations](https://github.com/user-attachments/assets/1bbce19f-538d-40f9-95a4-e78c401294b8)
+![add new record](https://github.com/user-attachments/assets/a0e3f142-36e4-464d-97b4-8724908381fc)
+
 
 ## "Kid's Events" screen & "Add New Event" screen:
+![kid's event screen](https://github.com/user-attachments/assets/27595e4e-644e-4b4f-84ce-cabcb578e881)
 
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/27f685d8-74e2-4b9a-8233-5014e6651acc)
-![image](https://github.com/NetanelBCN/KinderKit/assets/134021385/9b1100e8-3272-45bf-8807-68b166d4b7a6)
+![add new event screen](https://github.com/user-attachments/assets/30ab9416-b763-4029-92bb-69b4bae22768)
 
+## "Babysitter's Service Screen:
+![babysitter service](https://github.com/user-attachments/assets/35f105b8-61b1-4800-8691-ca367b1f081f)
+
+
+1. Clone the repository:
+`git clone https://github.com/YardenCherry/KinderKit-MiniApp.git
+`
 
 
 ## Watch Me!
