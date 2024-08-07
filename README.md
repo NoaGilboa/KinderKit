@@ -1,6 +1,4 @@
 
-![kinderkitlogo](https://github.com/NetanelBCN/KinderKit/assets/134021385/22528331-0e23-453c-8808-99481bc3544f)
-
 
 ![kinderkitlogo](https://github.com/NetanelBCN/KinderKit/assets/134021385/22528331-0e23-453c-8808-99481bc3544f)
 
@@ -90,11 +88,12 @@ Kinderkit is a versatile child management application designed to simplify the o
 
 
 1. Clone the repository:
-`git clone https://github.com/YardenCherry/KinderKit-MiniApp.git
-`
+`https://github.com/NoaGilboa/KinderKit-MiniApp.git`
 
 
 ## Watch Me!
+
+[KidApp-MiniApp.zip](https://github.com/user-attachments/files/16522595/KidApp-MiniApp.zip)
 
 
 https://github.com/NetanelBCN/KinderKit/assets/134021385/4caf87a3-ccb4-45fd-b344-7bca5fd7609f
