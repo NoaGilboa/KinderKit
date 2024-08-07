@@ -1,4 +1,6 @@
+Here is the document with all images resized to be smaller:
 
+---
 
 ![kinderkitlogo](https://github.com/NetanelBCN/KinderKit/assets/134021385/22528331-0e23-453c-8808-99481bc3544f)
 
@@ -45,46 +47,39 @@ Kinderkit is a versatile child management application designed to simplify the o
 
 ## "Sign in" screen:
 
-![Screenshot_20240714_162258](https://github.com/user-attachments/assets/1b4c59a5-e225-48b0-9bff-6216befbe0c8)
-
-
+<img src="https://github.com/user-attachments/assets/1b4c59a5-e225-48b0-9bff-6216befbe0c8" width="300" />
 
 ## User details bar:
 
-![menu screen](https://github.com/user-attachments/assets/68c2f619-fd05-4ad3-abad-4d866f317f41)
-
+<img src="https://github.com/user-attachments/assets/68c2f619-fd05-4ad3-abad-4d866f317f41" width="300" />
 
 ## User "Kids Menu" screen & "Add New Kid" screen:
 
-![Home page screen](https://github.com/user-attachments/assets/89d8a502-4824-41dc-90cf-8824373f3c9b)
-
-![add new kid screen](https://github.com/user-attachments/assets/1fc6eff4-7f3b-4a43-be1b-910c2e5a11ed)
-![new kid add successfully](https://github.com/user-attachments/assets/c62c73b9-66d3-437a-a8e5-452995a5a9aa)
-
+<img src="https://github.com/user-attachments/assets/89d8a502-4824-41dc-90cf-8824373f3c9b" width="300" />
+<img src="https://github.com/user-attachments/assets/1fc6eff4-7f3b-4a43-be1b-910c2e5a11ed" width="300" />
+<img src="https://github.com/user-attachments/assets/c62c73b9-66d3-437a-a8e5-452995a5a9aa" width="300" />
 
 ## "Kid's Card" screen:
 
-![kid profile](https://github.com/user-attachments/assets/cd3bd359-0360-4c24-a18b-07bbe69aea31)
-
+<img src="https://github.com/user-attachments/assets/cd3bd359-0360-4c24-a18b-07bbe69aea31" width="300" />
 
 ## "Kid's Gallery" screen:
 
-![kid gallery screen](https://github.com/user-attachments/assets/fc3651b4-28a3-4f9b-b4c8-3829cfc56eba)
-
+<img src="https://github.com/user-attachments/assets/fc3651b4-28a3-4f9b-b4c8-3829cfc56eba" width="300" />
 
 ## "Kid's Immunization Records" screen & "Add New Immunization Record" screen:
 
-![immunizations](https://github.com/user-attachments/assets/1bbce19f-538d-40f9-95a4-e78c401294b8)
-![add new record](https://github.com/user-attachments/assets/a0e3f142-36e4-464d-97b4-8724908381fc)
-
+<img src="https://github.com/user-attachments/assets/1bbce19f-538d-40f9-95a4-e78c401294b8" width="300" />
+<img src="https://github.com/user-attachments/assets/a0e3f142-36e4-464d-97b4-8724908381fc" width="300" />
 
 ## "Kid's Events" screen & "Add New Event" screen:
-![kid's event screen](https://github.com/user-attachments/assets/27595e4e-644e-4b4f-84ce-cabcb578e881)
 
-![add new event screen](https://github.com/user-attachments/assets/30ab9416-b763-4029-92bb-69b4bae22768)
+<img src="https://github.com/user-attachments/assets/27595e4e-644e-4b4f-84ce-cabcb578e881" width="300" />
+<img src="https://github.com/user-attachments/assets/30ab9416-b763-4029-92bb-69b4bae22768" width="300" />
 
 ## "Babysitter's Service Screen:
-![babysitter service](https://github.com/user-attachments/assets/35f105b8-61b1-4800-8691-ca367b1f081f)
+
+<img src="https://github.com/user-attachments/assets/35f105b8-61b1-4800-8691-ca367b1f081f" width="300" />
 
 
 1. Clone the repository:
@@ -95,10 +90,6 @@ Kinderkit is a versatile child management application designed to simplify the o
 
 [KidApp-MiniApp.zip](https://github.com/user-attachments/files/16522595/KidApp-MiniApp.zip)
 
-
 https://github.com/NetanelBCN/KinderKit/assets/134021385/4caf87a3-ccb4-45fd-b344-7bca5fd7609f
 
-
 [KinderKit.pptx](https://github.com/NetanelBCN/KinderKit/files/14986233/KinderKit.pptx)
-
-
