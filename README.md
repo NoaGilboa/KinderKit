@@ -72,13 +72,3 @@ https://github.com/NetanelBCN/KinderKit/assets/134021385/4caf87a3-ccb4-45fd-b344
 [KinderKit.pptx](https://github.com/NetanelBCN/KinderKit/files/14986233/KinderKit.pptx)
 
 
-
-## License
-
-Copyright (c) 2024 Netanel Boris Cohen Niazov 
-
-
-## Authors
-
-- Netanel Boris Cohen Niazov 
-
